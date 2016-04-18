@@ -5,6 +5,7 @@ import openType from 'opentype.js';
 
 // Components
 import Pattern from './pattern';
+import Sigil from './sigil';
 
 export default class Crest extends Component {
 
@@ -21,13 +22,17 @@ export default class Crest extends Component {
 		borderFill: PropTypes.string,
 		pattern: PropTypes.oneOf(Pattern.availablePatterns),
 		patternFill: PropTypes.string,
+		sigilFill: PropTypes.string,
+		sigilBorderFill: PropTypes.string
 	};
 
 	static defaultProps = {
 		fill: '#fff',
 		borderFill: '#000',
 		pattern: 'blank',
-		patternFill: '#ccc'
+		patternFill: '#ccc',
+		sigilFill: '#000',
+		sigilBorderFill: '#fff'
 	};
 
 	constructor(newProps) {
@@ -71,6 +76,7 @@ export default class Crest extends Component {
 			<svg {...this.componentProperties()} className={this.componentClassNames()}>
 				{this.renderBackground()}
 				<Pattern pattern={this.props.pattern} fill={this.props.patternFill} />
+				<Sigil fill={this.props.sigilFill} borderFill={this.props.sigilBorderFill} />
 				{this.renderBorder()}
 			</svg>
 		);
