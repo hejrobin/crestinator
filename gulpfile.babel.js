@@ -1,5 +1,6 @@
 import glob from 'glob';
 import gulp from 'gulp';
+import gulpIf from 'gulp-if';
 import babel from 'gulp-babel';
 import plumber from 'gulp-plumber';
 import less from 'gulp-less';
@@ -41,12 +42,14 @@ const prefixOptions = {
 	]
 };
 
+const isProduction = process.env.NODE_ENV === 'production';
+
 gulp.task('stylesheets', () => {
 	gulp.src(sharedBuildConfig.less.src)
 		.pipe(plumber())
 		.pipe(less())
 		.pipe(prefix(prefixOptions))
-		.pipe(minify())
+		.pipe(gulpIf(isProduction, minify()))
 		.pipe(plumber.stop())
 		.pipe(gulp.dest(sharedBuildConfig.less.dist));
 });
@@ -56,16 +59,20 @@ gulp.task('javascripts', () => {
 	let streams = sourceFilePaths.map((entry) => {
 		let dist = entry.replace(`${SRC_PATH}/javascripts/`, '');
 		return browserify({ entries: [entry] })
-			.transform(babelify)
-			.transform(uglify)
+			.transform('babelify', babelOptions)
 			.bundle()
 			.pipe(plumber())
+			.pipe(gulpIf(isProduction, uglify({ mangle: false })))
 			.pipe(source(dist))
 			.pipe(plumber.stop())
 			.pipe(gulp.dest(sharedBuildConfig.js.dist));
 	});
 
 	return eventStream.merge.apply(null, streams);
+});
+
+gulp.task('set-env', () => {
+
 });
 
 gulp.task('watch', () => {

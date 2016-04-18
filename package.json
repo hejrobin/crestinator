@@ -1,32 +1,39 @@
 {
-	"private": true,
-	"name": "crestinator",
-	"description": "The Crestinator is a small React application used to create Turbojugend chapter crests.",
-	"version": "0.5.0",
-	"licence": "MIT",
-	"author": {
-		"name": "Robin Grass",
-		"email": "hej@carbin.se",
-		"url": "http://hejrobin.se/"
-	},
-	"devDependencies": {
-		"babel-core": "^6.5.1",
-		"babel-preset-es2015": "^6.5.0",
-		"babel-preset-react": "^6.5.0",
-		"babel-preset-stage-0": "^6.5.0",
-		"babel-register": "^6.5.1",
-		"babelify": "^7.2.0",
-		"browserify": "^13.0.0",
-		"event-stream": "^3.3.2",
-		"gulp": "^3.9.0",
-		"gulp-autoprefixer": "^2.3.1",
-		"gulp-babel": "^6.1.0",
-		"gulp-concat": "^2.6.0",
-		"gulp-cssnano": "^2.1.0",
-		"gulp-less": "^3.0.3",
-		"gulp-plumber": "^1.0.1",
-		"uglifyify": "^3.0.1",
-		"vinyl-buffer": "^1.0.0",
-		"vinyl-source-stream": "^1.1.0"
-	}
+  "private": true,
+  "name": "crestinator",
+  "description": "The Crestinator is a small React application used to create Turbojugend chapter crests.",
+  "version": "0.5.0",
+  "licence": "MIT",
+  "author": {
+    "name": "Robin Grass",
+    "email": "hej@carbin.se",
+    "url": "http://hejrobin.se/"
+  },
+  "dependencies": {
+    "classnames": "^2.2.3",
+    "opentype.js": "^0.6.2",
+    "react": "^15.0.1",
+    "react-dom": "^15.0.1"
+  },
+  "devDependencies": {
+    "babel-core": "^6.5.1",
+    "babel-preset-es2015": "^6.5.0",
+    "babel-preset-react": "^6.5.0",
+    "babel-preset-stage-0": "^6.5.0",
+    "babel-register": "^6.5.1",
+    "babelify": "^7.2.0",
+    "browserify": "^13.0.0",
+    "event-stream": "^3.3.2",
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^2.3.1",
+    "gulp-babel": "^6.1.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-cssnano": "^2.1.0",
+    "gulp-if": "^2.0.0",
+    "gulp-less": "^3.0.3",
+    "gulp-plumber": "^1.0.1",
+    "uglifyify": "^3.0.1",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0"
+  }
 }
